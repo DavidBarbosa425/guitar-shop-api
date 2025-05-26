@@ -1,4 +1,5 @@
 using guitar_shop_api.Data;
+using guitar_shop_api.Ioc;
 using guitar_shop_api.Repositories;
 using guitar_shop_api.Services;
 
@@ -6,9 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddScoped<GuitarService>();
-builder.Services.AddScoped<GuitarRepository>();
-builder.Services.AddScoped<DataContext>();
+builder.Services.AddDependencies();
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCors();

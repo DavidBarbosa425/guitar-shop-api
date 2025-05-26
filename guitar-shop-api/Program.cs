@@ -11,10 +11,12 @@ builder.Services.AddScoped<GuitarRepository>();
 builder.Services.AddScoped<DataContext>();
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
+builder.Services.AddCors();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
+app.UseMiddleware<ExceptionMiddleware>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

@@ -28,7 +28,7 @@ namespace guitar_shop_api.Repositories
         {
             using (var connection = new SqlConnection(_dataContext.GetConnectionString()))
             {
-                var query = @"SELECT * FROM TbGuitar";
+                var query = @"SELECT * FROM TbGuitar where iu";
                 var result = await connection.QueryAsync<GuitarModel>(query);
                 return result.ToList();
             }
